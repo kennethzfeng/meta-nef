@@ -4,7 +4,7 @@ meta-nef
 Extract Metadata from NEF (Nikon's RAW Format)
 
 
-CREDITS
+Credits
 =======
 
 EXIF.py comes from ianare/exif-py
