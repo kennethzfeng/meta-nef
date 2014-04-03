@@ -93,9 +93,9 @@ EXIF_TAGS = {
              {1: 'Centered',
               2: 'Co-sited'}),
     0x0214: ('ReferenceBlackWhite', ),
-    
+
     0x4746: ('Rating', ),
-    
+
     0x828D: ('CFARepeatPatternDim', ),
     0x828E: ('CFAPattern', ),
     0x828F: ('BatteryLevel', ),
@@ -184,7 +184,7 @@ EXIF_TAGS = {
     0x9290: ('SubSecTime', ),
     0x9291: ('SubSecTimeOriginal', ),
     0x9292: ('SubSecTimeDigitized', ),
-    
+
     # used by Windows Explorer
     0x9C9B: ('XPTitle', ),
     0x9C9C: ('XPComment', ),
@@ -214,7 +214,7 @@ EXIF_TAGS = {
               4: 'Three-chip color area',
               5: 'Color sequential area',
               7: 'Trilinear',
-              8: 'Color sequential linear'}),             
+              8: 'Color sequential linear'}),
     0xA300: ('FileSource',
              {1: 'Film Scanner',
               2: 'Reflection Print Scanner',
@@ -285,7 +285,7 @@ class TIFFReader(object):
 
     def getEndianString(self):
         return self.ENDIANNESS[self.endian]
-    
+
     def getFirstIFD(self):
         return self.s2n(4, 4)
 
@@ -331,12 +331,12 @@ class TIFFReader(object):
         date, time = "".join(values[:-1]).split(" ")
         dt_str = date.split(':') + time.split(':')
         return datetime.datetime(*[int(v) for v in dt_str])
-        
 
 
-if len(sys.argv) <= 1:
-    print "Error"
-else:
-    f = sys.argv[1]
-    dt = TIFFReader(open(os.path.join(os.getcwd(), f))).getDateTime()
-    print dt
+if __name__ == "__main__":
+    if len(sys.argv) <= 1:
+        print "Error"
+    else:
+        f = sys.argv[1]
+        dt = TIFFReader(open(os.path.join(os.getcwd(), f))).getDateTime()
+        print dt
