@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 import datetime
-from EXIF import process_file
+from exifread import process_file
 
 
 INTERESTING_TAGS = (
